@@ -7,7 +7,7 @@ const Banner = ({ activeSong, data }) => {
       <div className="banner__text-content">
         <div>
           <p className="display__name">
-            {activeSong?.hub?.displayname} Enjoy you wants
+            {activeSong?.hub?.displayname || 'Enjoy your wants'}
           </p>
         </div>
         <div>
@@ -16,8 +16,7 @@ const Banner = ({ activeSong, data }) => {
           </h1>
         </div>
         <div>
-          <h5 className='song__subtitle'>
-   
+          <h5 className="song__subtitle">
             {activeSong?.subtitle || `Top ${data?.length} songs on trending `}
           </h5>
         </div>
