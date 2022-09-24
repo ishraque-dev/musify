@@ -1,0 +1,38 @@
+.banner {
+  display: flex;
+  width: 50%;
+  height: 260px;
+  background: #ff7f3f;
+  margin: 0 auto;
+  border-radius: 50px;
+  padding: 20px;
+  justify-content: space-around;
+  align-items: center;
+}
+.display__name {
+  font-weight: 500;
+  color: white;
+}
+.banner__text-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+.song__title {
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+}
+.banner__image {
+  width: 200px;
+  height: 200px;
+}
+.banner__image img {
+  width: 100%;
+  height: 100%;
+}
+.song__subtitle {
+  color: white;
+  font-size: 16px;
+  font-weight: 400;
+}

@@ -1,7 +1,4 @@
 import loader from './loader.svg';
 import logo from './logo.svg';
-
-export {
-  logo,
-  loader,
-};
+import bannerImg from './Tesfaye-PNG-Image.png';
+export { logo, loader, bannerImg };
