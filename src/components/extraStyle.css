@@ -1,0 +1,29 @@
+.nav__links {
+  transition: all ease-in-out 0.3s;
+  color: white;
+  background-color: black;
+
+  border-radius: 18px;
+}
+.nav__link:hover {
+  color: white;
+  background-color: black;
+  transition: all ease-in-out 0.3s;
+  border-radius: 18px;
+}
+.top-song__container {
+}
+@media screen and (max-width: 968px) {
+  .top__charts {
+    display: none;
+  }
+}
+.top__song:hover {
+  background: #181717;
+}
+.top__song:hover h3 {
+  color: white;
+}
+.song-container {
+  background: #000;
+}

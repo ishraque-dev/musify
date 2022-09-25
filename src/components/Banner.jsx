@@ -3,7 +3,7 @@ import './banner.css';
 import { bannerImg } from '../assets';
 const Banner = ({ activeSong, data }) => {
   return (
-    <div className="banner">
+    <div className="banner ">
       <div className="banner__text-content">
         <div>
           <p className="display__name">
