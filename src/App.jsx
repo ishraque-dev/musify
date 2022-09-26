@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
-
+import './components/extraStyle.css';
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
 import {
   ArtistDetails,
@@ -18,10 +18,7 @@ const App = () => {
   return (
     <div className="relative flex ">
       <Sidebar />
-      <div
-        style={{ backgroundColor: 'rgba(0 0 0)' }}
-        className="flex-1 flex flex-col"
-      >
+      <div className="app__container flex-1 flex flex-col">
         <Searchbar />
 
         <div className="px-6 h-[calc(100vh-20px)] overflow-y-scroll hide-scrollbar flex xl:flex-row ">
@@ -43,7 +40,7 @@ const App = () => {
       </div>
 
       {activeSong?.title && (
-        <div className="absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#000000] backdrop-blur-lg rounded-t-3xl z-10">
+        <div className=" absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#000000] backdrop-blur-lg rounded-t-3xl z-10">
           <MusicPlayer />
         </div>
       )}

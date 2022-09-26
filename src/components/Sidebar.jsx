@@ -43,7 +43,7 @@ const Sidebar = () => {
         </h2>
         <NavLinks />
       </div>
-      <div className="absolute md:hidden block top-6 right-3">
+      <div className="absolute md:hidden block top-6 right-3 z-10">
         {mobileMenuOpen ? (
           <RiCloseLine
             onClick={() => setMobileMenuOpen(false)}
@@ -61,7 +61,9 @@ const Sidebar = () => {
           mobileMenuOpen ? 'left-o ' : 'left-full'
         }`}
       >
-        <img src={logo} alt="logo" className="w-full h-14 object-contain" />
+        <h2 className='text-[40px] text-center font-bold text-[#D2001A] tracking-wider"'>
+          Musify
+        </h2>
         <NavLinks onClick={() => setMobileMenuOpen(false)} />
       </div>
     </>
