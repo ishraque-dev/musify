@@ -19,10 +19,13 @@ const TopChartCard = ({
   handlePlayClick,
 }) => {
   console.log(song);
+
   return (
     <div
       style={{ transition: 'all ease-in-out 0.3s' }}
-      className="w-full flex flex-row items-center  py-2 p-4 rounded-lg  cursor-pointer top__song"
+      className={`w-full flex flex-row items-center  py-2 p-4 rounded-lg  cursor-pointer top__song ${
+        activeSong?.title === song?.title ? 'bg-[#181717]' : 'bg-transparent'
+      }`}
     >
       <h3 className="text-black font-semibold ">{i + 1}.</h3>
       <div className="ml-2 flex flex-1 flex-row justify-between items-center">

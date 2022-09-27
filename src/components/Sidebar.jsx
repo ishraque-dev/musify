@@ -22,6 +22,7 @@ const NavLinks = ({ handleClick }) => {
             } `}
             onClick={() => {
               handleClick && handleClick();
+              setMobileMenuOpen(false);
             }}
           >
             <item.icon className="w-6 h-6 mr-2" />
@@ -64,7 +65,7 @@ const Sidebar = () => {
         <h2 className='text-[40px] text-center font-bold text-[#D2001A] tracking-wider"'>
           Musify
         </h2>
-        <NavLinks onClick={() => setMobileMenuOpen(false)} />
+        <NavLinks />
       </div>
     </>
   );

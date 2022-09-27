@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 const Track = ({ isPlaying, isActive, activeSong }) => (
   <div className="flex-1 flex items-center justify-start">
     <div className="hidden sm:block h-16 w-16 mr-4">
@@ -10,9 +10,11 @@ const Track = ({ isPlaying, isActive, activeSong }) => (
       />
     </div>
     <div className="w-[50%]">
-      <p className="truncate text-white font-bold text-lg">
-        {activeSong?.title ? activeSong?.title : 'No active Song'}
-      </p>
+      <Link to={`/songs/${activeSong?.key}`}>
+        <p className="truncate text-white font-bold text-lg">
+          {activeSong?.title ? activeSong?.title : activeSong.key}
+        </p>
+      </Link>
       <p className="truncate text-gray-300">
         {activeSong?.subtitle ? activeSong?.subtitle : 'No active Song'}
       </p>
