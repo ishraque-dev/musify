@@ -2,6 +2,7 @@ import React from 'react';
 import './banner.css';
 import { bannerImg } from '../assets';
 const Banner = ({ activeSong, data }) => {
+  const songName = activeSong?.title;
   return (
     <div className="banner ">
       <div className="banner__text-content">
@@ -12,7 +13,9 @@ const Banner = ({ activeSong, data }) => {
         </div>
         <div>
           <h1 className="song__title">
-            {activeSong?.title || ' Discover Top Charts'}
+            {songName?.length > 15
+              ? songName.substring(0, 15) + '...'
+              : ' Discover Top Charts'}
           </h1>
         </div>
         <div>

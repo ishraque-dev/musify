@@ -6,7 +6,7 @@ import { logo } from '../assets';
 import { links } from '../assets/constants';
 import { useLocation } from 'react-router-dom';
 import './extraStyle.css';
-const NavLinks = ({ handleClick }) => {
+const NavLinks = ({ handleClick, mobileMenuOpen, setMobileMenuOpen }) => {
   const location = useLocation();
   console.log(location.pathname);
 
@@ -22,7 +22,7 @@ const NavLinks = ({ handleClick }) => {
             } `}
             onClick={() => {
               handleClick && handleClick();
-              setMobileMenuOpen(false);
+              mobileMenuOpen && setMobileMenuOpen(!mobileMenuOpen);
             }}
           >
             <item.icon className="w-6 h-6 mr-2" />
@@ -47,7 +47,9 @@ const Sidebar = () => {
       <div className="absolute md:hidden block top-6 right-3 z-10">
         {mobileMenuOpen ? (
           <RiCloseLine
-            onClick={() => setMobileMenuOpen(false)}
+            onClick={() => {
+              setMobileMenuOpen(false);
+            }}
             className="w-6 h-6 text-white mr-2"
           />
         ) : (
@@ -65,7 +67,10 @@ const Sidebar = () => {
         <h2 className='text-[40px] text-center font-bold text-[#D2001A] tracking-wider"'>
           Musify
         </h2>
-        <NavLinks />
+        <NavLinks
+          mobileMenuOpen={mobileMenuOpen}
+          setMobileMenuOpen={setMobileMenuOpen}
+        />
       </div>
     </>
   );
