@@ -18,7 +18,7 @@ const TopChartCard = ({
   handlePauseClick,
   handlePlayClick,
 }) => {
-  console.log(song);
+ 
 
   return (
     <div

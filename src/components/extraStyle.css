@@ -30,3 +30,10 @@
 .app__container {
   background-image: linear-gradient(rgba(0, 0, 0) 0, #121212 100%);
 }
+@media screen and (min-width: 320px) and (max-width: 640px) {
+  .extra__media {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}

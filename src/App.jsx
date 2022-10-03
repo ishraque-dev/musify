@@ -1,7 +1,9 @@
+import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 import './components/extraStyle.css';
 import { Searchbar, Sidebar, MusicPlayer, TopPlay } from './components';
+import SwipeableBottomSheet from 'react-swipeable-bottom-sheet';
 import {
   ArtistDetails,
   TopArtists,
@@ -14,6 +16,7 @@ import {
 
 const App = () => {
   const { activeSong } = useSelector((state) => state.player);
+  const [open, setOpen] = useState(false);
 
   return (
     <div className="relative flex ">
@@ -40,8 +43,31 @@ const App = () => {
       </div>
 
       {activeSong?.title && (
-        <div className=" absolute h-28 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#000000] backdrop-blur-lg rounded-t-3xl z-10">
-          <MusicPlayer />
+        <div className="z-10">
+          <SwipeableBottomSheet
+            overflowHeight={85}
+            fullScreen={true}
+            onChange={() => {
+              setOpen((per) => {
+                return !per;
+              });
+            }}
+            bodyStyle={{
+              background: '#000000',
+              backdropFilter: 'blur(10px)',
+              opacity: 0.9,
+              display: 'flex',
+              zIndex: '1000',
+              alignItems: 'center',
+              flexDirection: 'column',
+              borderRadius: '5px',
+              padding: '10px',
+              justifyContent: open ? 'center' : null,
+            }}
+            open={open}
+          >
+            <MusicPlayer />
+          </SwipeableBottomSheet>
         </div>
       )}
     </div>

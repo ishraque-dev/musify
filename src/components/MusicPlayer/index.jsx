@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
+import '../extraStyle.css';
 import {
   nextSong,
   prevSong,
@@ -58,7 +58,7 @@ const MusicPlayer = () => {
   };
 
   return (
-    <div className="relative sm:px-12 px-8 w-full flex items-center justify-between">
+    <div className="relative sm:px-12 px-8 w-full mx-2 flex items-center justify-between extra__media">
       <Track
         isPlaying={isPlaying}
         isActive={isActive}
