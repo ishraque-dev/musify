@@ -1,4 +1,3 @@
-import { loader } from '../assets';
 import './loader.css';
 const Loader = ({ title }) => (
   <div className="w-full flex flex-col justify-center items-center">

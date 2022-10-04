@@ -66,7 +66,7 @@ const App = () => {
             }}
             open={open}
           >
-            <MusicPlayer />
+            <MusicPlayer isOpen={open} />
           </SwipeableBottomSheet>
         </div>
       )}

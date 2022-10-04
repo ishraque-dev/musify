@@ -12,7 +12,7 @@ import Seekbar from './Seekbar';
 import Track from './Track';
 import VolumeBar from './VolumeBar';
 
-const MusicPlayer = () => {
+const MusicPlayer = ({ isOpen }) => {
   const { activeSong, currentSongs, currentIndex, isActive, isPlaying } =
     useSelector((state) => state.player);
   const [duration, setDuration] = useState(0);
@@ -56,6 +56,32 @@ const MusicPlayer = () => {
       dispatch(prevSong(currentIndex - 1));
     }
   };
+  //  Use window size
+  const [windowSize, setWindowSize] = useState(null);
+  const [activeSlide, setActiveSlide] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowSize(window.innerWidth);
+    };
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, [window.innerWidth]);
+  useEffect(() => {
+    if (windowSize > 690) {
+      setActiveSlide(true);
+    } else {
+      setActiveSlide(false);
+    }
+  }, [windowSize]);
+  useEffect(() => {
+    if (isOpen) {
+      setActiveSlide(true);
+    } else {
+      setActiveSlide(false);
+    }
+  }, [isOpen]);
 
   return (
     <div className="relative sm:px-12 px-8 w-full mx-2 flex items-center justify-between extra__media">
@@ -64,8 +90,10 @@ const MusicPlayer = () => {
         isActive={isActive}
         activeSong={activeSong}
       />
-      <div className="flex-1 flex flex-col items-center justify-center">
+      (
+      <div className=" flex flex-col items-center justify-center">
         <Controls
+          activeSlide={activeSlide}
           isPlaying={isPlaying}
           isActive={isActive}
           repeat={repeat}
@@ -97,13 +125,16 @@ const MusicPlayer = () => {
           onLoadedData={(event) => setDuration(event.target.duration)}
         />
       </div>
-      <VolumeBar
-        value={volume}
-        min="0"
-        max="1"
-        onChange={(event) => setVolume(event.target.value)}
-        setVolume={setVolume}
-      />
+      )
+      {
+        <VolumeBar
+          value={volume}
+          min="0"
+          max="1"
+          onChange={(event) => setVolume(event.target.value)}
+          setVolume={setVolume}
+        />
+      }
     </div>
   );
 };

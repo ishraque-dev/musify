@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-const Track = ({ isPlaying, isActive, activeSong }) => (
-  <div className="flex-1 flex items-center justify-start">
-    <div className="hidden sm:block h-16 w-16 mr-4">
+const Track = ({ activeSong }) => (
+  <div className="flex items-center justify-start">
+    <div className="sm:block h-16 w-16 mr-4">
       <img
         src={activeSong?.images?.coverart}
         alt="cover art"

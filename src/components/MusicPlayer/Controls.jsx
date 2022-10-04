@@ -19,12 +19,14 @@ const Controls = ({
   handleNextSong,
 }) => (
   <div className="flex items-center justify-around md:w-36 lg:w-52 2xl:w-80">
-    <BsArrowRepeat
-      size={20}
-      color={repeat ? 'red' : 'white'}
-      onClick={() => setRepeat((prev) => !prev)}
-      className="sm:block cursor-pointer"
-    />
+    {
+      <BsArrowRepeat
+        size={20}
+        color={repeat ? 'red' : 'white'}
+        onClick={() => setRepeat((prev) => !prev)}
+        className="sm:block cursor-pointer"
+      />
+    }
     {currentSongs?.length && (
       <MdSkipPrevious
         size={30}

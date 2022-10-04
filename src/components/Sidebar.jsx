@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { RiCloseLine } from 'react-icons/ri';
 import { FaBars } from 'react-icons/fa';
-import { logo } from '../assets';
+ 
 import { links } from '../assets/constants';
 import { useLocation } from 'react-router-dom';
 import './extraStyle.css';

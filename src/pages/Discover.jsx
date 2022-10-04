@@ -1,14 +1,14 @@
-import { Banner, Error, Loader, SongCard } from '../components';
-import { useDispatch, useSelector } from 'react-redux';
+import { Banner,  Loader, SongCard } from '../components';
+import {  useSelector } from 'react-redux';
 import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 import { genres } from '../assets/constants';
-import { Swiper, SwiperSlide } from 'swiper/react';
+ 
 
 const Discover = () => {
-  const { data, isFetching, error } = useGetTopChartsQuery();
+  const { data, isFetching } = useGetTopChartsQuery();
 
   const genreTitle = 'Pop';
-  const dispatch = useDispatch();
+ 
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   console.log(activeSong);
   if (isFetching) return <Loader title="Loading songs..." />;
@@ -19,7 +19,9 @@ const Discover = () => {
         Discover {genreTitle}
       </h2>
       <select
-        onChange={(first) => {
+        disabled
+        title="Work in progress..."
+        onChange={( ) => {
           second;
         }}
         value=""

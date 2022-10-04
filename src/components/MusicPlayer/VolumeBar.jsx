@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../components/extraStyle.css';
 import {
   BsFillVolumeUpFill,
   BsVolumeDownFill,
@@ -6,7 +7,7 @@ import {
 } from 'react-icons/bs';
 
 const VolumeBar = ({ value, min, max, onChange, setVolume }) => (
-  <div className="flex flex-1 items-center flex-row sm:justify-center">
+  <div className="flex  items-center flex-row sm:justify-center">
     {value <= 1 && value > 0.5 && (
       <BsFillVolumeUpFill size={25} color="#FFF" onClick={() => setVolume(0)} />
     )}
@@ -27,7 +28,7 @@ const VolumeBar = ({ value, min, max, onChange, setVolume }) => (
       min={min}
       max={max}
       onChange={onChange}
-      className="2xl:w-40 lg:w-32 md:w-32 h-1 ml-2"
+      className="2xl:w-40 lg:w-32 md:w-32 h-1 ml-2 extra_small"
     />
   </div>
 );
