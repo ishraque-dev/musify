@@ -9,9 +9,9 @@
 # Technologies
 #### 1. React.js.
 ### 2. APIs:
-#### a. Use Shazam API to gather music data
-#### b. Use Shazam Core API to gather artist details and recommended tracks
-#### c. Use IP Geolocation API to get the user’s location
+#### a.  Shazam API to gather music data
+#### b.  Shazam Core API to gather artist details and recommended tracks
+#### c.  Geolocation API to get the user’s location
 ### 3. Libraries:
 #### a. React swiper
 #### b. Tailwind CSS
