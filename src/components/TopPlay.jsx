@@ -18,7 +18,6 @@ const TopChartCard = ({
   handlePauseClick,
   handlePlayClick,
 }) => {
-  console.log(song);
   return (
     <div
       style={{ transition: 'all ease-in-out 0.3s' }}
@@ -88,20 +87,22 @@ const TopPlay = () => {
           </Link>
         </div>
         <div className="  mt-4 mb-4 flex flex-col gap-1 rounded-lg song-container ">
-          {topPlays?.map((song, i) => {
-            console.log(song?.artists ?? [0]);
-            return (
-              <TopChartCard
-                isPlaying={isPlaying}
-                activeSong={activeSong}
-                handlePauseClick={handlePauseClick}
-                handlePlayClick={() => handlePlayClick(song, i)}
-                song={song}
-                i={i}
-                key={song.key}
-              />
-            );
-          })}
+          {topPlays
+            ?.filter((item) => item.images !== undefined)
+            .map((song, i) => {
+              console.log(song?.artists ?? [0]);
+              return (
+                <TopChartCard
+                  isPlaying={isPlaying}
+                  activeSong={activeSong}
+                  handlePauseClick={handlePauseClick}
+                  handlePlayClick={() => handlePlayClick(song, i)}
+                  song={song}
+                  i={i}
+                  key={song.key}
+                />
+              );
+            })}
         </div>
       </div>
       <div className="w-full flex flex-col  mt-10">
@@ -120,23 +121,25 @@ const TopPlay = () => {
           module={[FreeMode]}
           className="mt-4"
         >
-          {topPlays?.map((song, i) => {
-            return (
-              <SwiperSlide
-                key={song.key}
-                style={{ width: '25%', height: 'auto' }}
-                className="shadow-lg rounded-full animate-slideRight"
-              >
-                <Link to={`/artist/${song?.artists ?? [0].adamid}`}>
-                  <img
-                    src={song?.images?.background}
-                    alt="name"
-                    className="rounded-full w-full object-cover"
-                  />
-                </Link>
-              </SwiperSlide>
-            );
-          })}
+          {topPlays
+            ?.filter((item) => item.images !== undefined)
+            .map((song, i) => {
+              return (
+                <SwiperSlide
+                  key={song.key}
+                  style={{ width: '25%', height: 'auto' }}
+                  className="shadow-lg rounded-full animate-slideRight"
+                >
+                  <Link to={`/artist/${song?.artists ?? [0].adamid}`}>
+                    <img
+                      src={song?.images?.background}
+                      alt="name"
+                      className="rounded-full w-full object-cover"
+                    />
+                  </Link>
+                </SwiperSlide>
+              );
+            })}
         </Swiper>
       </div>
     </div>

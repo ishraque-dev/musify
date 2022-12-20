@@ -1,14 +1,13 @@
-import { Banner,  Loader, SongCard } from '../components';
-import {  useSelector } from 'react-redux';
+import { Banner, Loader, SongCard } from '../components';
+import { useSelector } from 'react-redux';
 import { useGetTopChartsQuery } from '../redux/services/shazamCore';
 import { genres } from '../assets/constants';
- 
 
 const Discover = () => {
   const { data, isFetching } = useGetTopChartsQuery();
 
   const genreTitle = 'Pop';
- 
+
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   console.log(activeSong);
   if (isFetching) return <Loader title="Loading songs..." />;
@@ -21,7 +20,7 @@ const Discover = () => {
       <select
         disabled
         title="Work in progress..."
-        onChange={( ) => {
+        onChange={() => {
           second;
         }}
         value=""
@@ -35,18 +34,20 @@ const Discover = () => {
       <Banner activeSong={activeSong} data={data} />
       <div className="w-full flex justify-between items-center sm:flex-row flex-col mt-4 mb-10 ">
         <div className="flex flex-wrap sm:justify-center justify-center gap-8">
-          {data?.map((song, i) => {
-            return (
-              <SongCard
-                key={song.key}
-                song={song}
-                i={i}
-                isPlaying={isPlaying}
-                activeSong={activeSong}
-                data={data}
-              />
-            );
-          })}
+          {data
+            ?.filter((item) => item.images != undefined)
+            .map((song, i) => {
+              return (
+                <SongCard
+                  key={song.key}
+                  song={song}
+                  i={i}
+                  isPlaying={isPlaying}
+                  activeSong={activeSong}
+                  data={data}
+                />
+              );
+            })}
         </div>
       </div>
     </div>
