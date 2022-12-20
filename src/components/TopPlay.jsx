@@ -18,8 +18,7 @@ const TopChartCard = ({
   handlePauseClick,
   handlePlayClick,
 }) => {
- 
-
+  console.log(song);
   return (
     <div
       style={{ transition: 'all ease-in-out 0.3s' }}
@@ -31,7 +30,7 @@ const TopChartCard = ({
       <div className="ml-2 flex flex-1 flex-row justify-between items-center">
         <img
           className="w-10 h-10 rounded-lg"
-          src={song?.images.coverart}
+          src={song?.images?.coverart}
           alt={song?.title}
         />
         <div className="flex-1 flex flex-col justify-center mx-3">
@@ -88,9 +87,9 @@ const TopPlay = () => {
             <small className="text-white">See more</small>
           </Link>
         </div>
-        <div className="  mt-4 mb-4 flex flex-col gap-1  rounded-lg song-container ">
+        <div className="  mt-4 mb-4 flex flex-col gap-1 rounded-lg song-container ">
           {topPlays?.map((song, i) => {
-            console.log(song);
+            console.log(song?.artists ?? [0]);
             return (
               <TopChartCard
                 isPlaying={isPlaying}
@@ -128,9 +127,9 @@ const TopPlay = () => {
                 style={{ width: '25%', height: 'auto' }}
                 className="shadow-lg rounded-full animate-slideRight"
               >
-                <Link to={`/artist/${song?.artists[0].adamid}`}>
+                <Link to={`/artist/${song?.artists ?? [0].adamid}`}>
                   <img
-                    src={song?.images.background}
+                    src={song?.images?.background}
                     alt="name"
                     className="rounded-full w-full object-cover"
                   />
