@@ -30,3 +30,12 @@
 #### all of their most popular songs.
 #### 7. Song Details Page -Users can see additional information about the song, such
 #### as the song’s music video and lyrics and a list of similar songs.
+
+# Upcoming features
+#### User authentication/authorization.
+#### Create privet and public playlist.
+#### Like and share songs.
+#### Update users profile.
+#### Follow and unfollow other users.
+#### Like and save others playlist.
+#### Show followers and followings.
